@@ -15,7 +15,7 @@ export default function Pagination(props: IPaginationProps) {
     props.onChange(parseInt(e.target.value));
   }
   return props.totalRecs > MAX_RECS_PER_PAGE ? <select defaultValue={props.currentPage} onChange={onPageChage}>
-    { createEmptyArray(Math.floor((props.totalRecs -1) / MAX_RECS_PER_PAGE), 0).map((ele, idx) => {
+    { createEmptyArray((Math.floor((props.totalRecs -1) / MAX_RECS_PER_PAGE)) + 1, 0).map((ele, idx) => {
       return <option key={idx} value={idx}>{records(idx)}</option>;
     })}
   </select> : <div>0 - {props.totalRecs}</div>;
